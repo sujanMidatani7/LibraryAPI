@@ -17,4 +17,4 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
 EXPOSE 80
 
 # Run the web service on container startup
-CMD ["uvicorn", "main:app", "--reload"]
+CMD [ "poetry", "run", "uvicorn", "main:app", "--reload" ]
