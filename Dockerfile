@@ -10,7 +10,7 @@ COPY . .
 RUN pip install uvicorn
 
 # Install dependencies using Poetry
-RUN curl -sSL https://install.python-poetry.org | python3 - && \
+RUN pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install --no-interaction --no-ansi --only=main
 
