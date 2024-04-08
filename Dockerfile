@@ -6,7 +6,8 @@ WORKDIR /app
 # Copy local code to the container image
 COPY . .
 # Make /app the working directory for all
-
+RUN pip install --upgrade pip
+RUN pip install uvicorn
 
 RUN curl -sSL https://install.python-poetry.org | python3 - && \
     echo "export PATH=$HOME/.local/bin:$PATH" >> ~/.bashrc && \

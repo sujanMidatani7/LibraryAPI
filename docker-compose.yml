@@ -5,7 +5,7 @@ services:
 
     build:
       dockerfile: Dockerfile
-    command: [ "poetry", "run", "uvicorn", "main:app", "--reload" ]
+    command: [ "uvicorn", "main:app", "--reload" ]
     restart: always
     ports:
       - 8000:8000
