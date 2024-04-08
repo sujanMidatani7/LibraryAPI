@@ -7,10 +7,30 @@ import os
 load_dotenv()
 
 class DB:
-    uri =f"mongodb+srv://{os.getenv("USERNAME")}:{os.getenv("PASSWORD")}@{os.getenv("CLUSTER")}.1zyzpgd.mongodb.net/?retryWrites=true&w=majority&appName={os.getenv("CLUSTER")}"
+    """
+    A class representing a MongoDB database connection.
+
+    Attributes:
+        uri (str): The connection URI for the MongoDB database.
+        client (pymongo.MongoClient): The MongoDB client object.
+
+    Methods:
+        __init__(): Initializes a new instance of the DB.
+    """
+
+    uri =f"mongodb+srv://{os.getenv('USERNAME')}:{os.getenv('PASSWORD')}@{os.getenv('CLUSTER')}.1zyzpgd.mongodb.net/?retryWrites=true&w=majority&appName={os.getenv('CLUSTER')}"
+
     def __init__(self):
-        
-        self.client=MongoClient(self.uri, server_api=ServerApi('1'))
+        """
+        Initializes a new instance of the DB class.
+
+        Parameters:
+            None
+
+        Returns:
+            None
+        """
+        self.client = MongoClient(self.uri, server_api=ServerApi('1'))
         
 
 
