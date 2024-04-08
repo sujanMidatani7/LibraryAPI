@@ -32,7 +32,7 @@ async def get_records(country=None, age=None):
     client = DB().client
     query = {}
     if country:
-        query['country'] = country
+        query['address.country'] = country
     if age:
         query['age'] = {'$gte': age}
     records = client.Library.students.find(query, projection={'_id': False})
