@@ -6,16 +6,15 @@ WORKDIR /app
 # Copy local code to the container image
 COPY . .
 # Make /app the working directory for all
-RUN pip install --upgrade pip
-RUN pip install uvicorn
+RUN python3 -m venv .venv
+RUN source .venv/bin/activate
+# RUN pip install uvicorn
 
-RUN curl -sSL https://install.python-poetry.org | python3 - && \
-    echo "export PATH=$HOME/.local/bin:$PATH" >> ~/.bashrc && \
-    . ~/.bashrc && \
+RUN pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install --no-interaction --no-ansi --only=main
 
 EXPOSE 80
 
 # Run the web service on container startup
-CMD [ "poetry", "run", "uvicorn", "main:app", "--reload" ]
+CMD ["uvicorn", "main:app", "--reload" ]
