@@ -16,13 +16,13 @@ The API has the following endpoints:
 1. `/students` - GET, POST
 2. `/students/{id}` - GET, PATCH, DELETE
 
-## Technologies
+## Dependencies
 1. FastAPI
 2. Uvicorn
 3. Pydantic
 4. Poetry
 5. PyMongo
-6. MongoDB
+
 
 ## Contributors
 [Sujan Midatani](https://github.com/sujamiditani7)
